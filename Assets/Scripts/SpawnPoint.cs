@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class SpawnPoint : MonoBehaviour
 {
-    public bool IsEmpty { get; private set; } = true;
+    private Tool _tool;
+    public bool IsEmpty => _tool == null;
 
-    public void Occupy()
+    public void OccupyWith(Tool tool)
     {
-        IsEmpty = false;
-    }
-
-    public void Release()
-    {
-        IsEmpty = true;
+        _tool = tool;
     }
 }
