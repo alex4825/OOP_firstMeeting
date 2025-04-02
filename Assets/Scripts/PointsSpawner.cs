@@ -21,7 +21,10 @@ public class PointsSpawner : MonoBehaviour
             for (float z = -halfCountZ; z <= halfCountZ; z++)
             {
                 Vector3 position = new(x * _spacing, 0, z * _spacing);
-                spawnPoints.Add(Instantiate(_spawnPointPrefab, position, Quaternion.identity, _container));
+
+                SpawnPoint point = Instantiate(_spawnPointPrefab, _container);
+                point.transform.localPosition = position;
+                spawnPoints.Add(point);
             }
 
         return spawnPoints;

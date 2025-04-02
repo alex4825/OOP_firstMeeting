@@ -5,8 +5,7 @@ using static UnityEngine.ParticleSystem;
 
 public abstract class Tool : MonoBehaviour
 {
-    [SerializeField] protected ParticleSystem ParticlesOnUse;
-
+    [SerializeField] private float _pickUpScale = 0.25f;
 
     public bool IsPickedUp { get; protected set; }
 
@@ -14,10 +13,11 @@ public abstract class Tool : MonoBehaviour
     {
         transform.SetParent(parent);
         transform.SetLocalPositionAndRotation(Vector3.zero, parent.localRotation);
+        transform.localScale = new Vector3(_pickUpScale, _pickUpScale, _pickUpScale);
 
         IsPickedUp = true;
     }
 
-    public abstract void Use();
+    public abstract void UseBy(Player player);
 
 }

@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthUp : MonoBehaviour
+public class HealthUp : Tool
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private int _healthCoint = 10;
 
-    // Update is called once per frame
-    void Update()
+    public override void UseBy(Player player)
     {
-        
+        player.Health.Add(_healthCoint);
+
+        Destroy(gameObject);
     }
 }

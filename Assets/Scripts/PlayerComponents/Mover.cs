@@ -12,6 +12,13 @@ public class Mover : MonoBehaviour
 
     public Vector3 MoveDirection {  get; private set; }
 
+    public Speed Speed { get; private set; }
+
+    private void Awake()
+    {
+        Speed = new(_speed);
+    }
+
     private void Update()
     {
         SetMoveDirection();
@@ -21,7 +28,7 @@ public class Mover : MonoBehaviour
 
     private void ProcessMovement()
     {
-        transform.Translate(MoveDirection * _speed * Time.deltaTime, Space.World);
+        transform.Translate(MoveDirection * Speed.Value * Time.deltaTime, Space.World);
     }
 
     private void SetMoveDirection()

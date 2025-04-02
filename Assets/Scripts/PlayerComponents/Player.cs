@@ -3,8 +3,10 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private Transform _toolLocation;
+    [SerializeField] private Mover _mover;
     [SerializeField] private int _healthValue = 100;
 
+    public Mover Mover => _mover;
     public Health Health { get; private set; }
     public Tool CurrentTool { get; private set; }
 
@@ -24,7 +26,8 @@ public class Player : MonoBehaviour
             }
             else
             {
-                CurrentTool.Use();
+                CurrentTool.UseBy(this);
+                CurrentTool = null;
             }
         }
     }
@@ -36,7 +39,7 @@ public class Player : MonoBehaviour
         if (collidedTool == null)
             return;
 
-        if (CurrentTool == null || collidedTool.IsPickedUp == false)
+        if (CurrentTool == null && collidedTool.IsPickedUp == false)
         {
             collidedTool.PickUp(_toolLocation);
             CurrentTool = collidedTool;
