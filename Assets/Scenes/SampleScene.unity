@@ -854,10 +854,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1528486404}
+  - component: {fileID: 1528486409}
   - component: {fileID: 1528486407}
   - component: {fileID: 1528486406}
   - component: {fileID: 1528486408}
-  - component: {fileID: 1528486409}
+  - component: {fileID: 1528486410}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -894,7 +895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc994ceba877c046af83a815a15cb33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationSpeed: 300
+  _rotationSpeed: 500
   _mover: {fileID: 1528486408}
 --- !u!114 &1528486407
 MonoBehaviour:
@@ -908,7 +909,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f561d7a881deec439d2bf96c116d7cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _toolLocation: {fileID: 304143032}
   _mover: {fileID: 1528486408}
   _healthValue: 100
 --- !u!114 &1528486408
@@ -923,7 +923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3eff48bf23974c4aaeaa1c53b551c3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
+  _initialSpeed: 5
 --- !u!136 &1528486409
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -947,6 +947,20 @@ CapsuleCollider:
   m_Height: 2.0017223
   m_Direction: 1
   m_Center: {x: -0.0013604164, y: 0.9975841, z: 0.000659585}
+--- !u!114 &1528486410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528486403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8740a5e95b38a1a469f0bc4590af8cb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 1528486407}
+  _hand: {fileID: 304143032}
 --- !u!1 &1832486159
 GameObject:
   m_ObjectHideFlags: 0

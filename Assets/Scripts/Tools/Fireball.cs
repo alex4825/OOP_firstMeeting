@@ -20,6 +20,7 @@ public class Fireball : Tool
         _rigidbody.isKinematic = false;
         _rigidbody.AddForce(throwDirection * _throwForce, ForceMode.Impulse);
 
+        Debug.Log($"Игрок бросил огненный шар");
 
         Destroy(gameObject, _throwLifetime);
     }

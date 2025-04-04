@@ -10,6 +10,8 @@ public class HealthUp : Tool
     {
         player.Health.Add(_healthCoint);
 
+        Debug.Log($"Аптечка применена. Здоровье игрока: {player.Health.Value}");
+
         Destroy(gameObject);
     }
 }

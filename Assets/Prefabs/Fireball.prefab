@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4048373141048449917}
   - component: {fileID: 6794274176480935642}
   - component: {fileID: -3959319725337363581}
+  - component: {fileID: -8494973222054057903}
   m_Layer: 0
   m_Name: Fireball
   m_TagString: Untagged
@@ -102,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pickUpScale: 0.25
+  _toolAnimator: {fileID: -8494973222054057903}
   _throwLifetime: 5
   _throwForce: 10
   _throwAngleInDegrees: 30
@@ -169,6 +171,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _particlesLoop: {fileID: 1134191846743648669}
   _particlesOnDestroy: {fileID: 5672354123457570261}
+--- !u!114 &-8494973222054057903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4136835683306618727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab02122af1587ae459c0932dcdb9ca15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _verticatLoopSpeed: 3
+  _rotationSpeed: 100
 --- !u!1001 &780708841499626894
 PrefabInstance:
   m_ObjectHideFlags: 0

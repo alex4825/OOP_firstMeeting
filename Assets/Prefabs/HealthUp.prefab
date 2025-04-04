@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8602924822867294107}
   - component: {fileID: 2679531198545496327}
   - component: {fileID: -4865551231342989602}
+  - component: {fileID: -5298685865009516298}
   m_Layer: 0
   m_Name: HealthUp
   m_TagString: Untagged
@@ -150,6 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pickUpScale: 0.25
+  _toolAnimator: {fileID: -5298685865009516298}
   _healthCoint: 10
 --- !u!114 &-4865551231342989602
 MonoBehaviour:
@@ -165,6 +167,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _particlesLoop: {fileID: 136420238509417940}
   _particlesOnDestroy: {fileID: 8775516072966834555}
+--- !u!114 &-5298685865009516298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4979665840318741995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab02122af1587ae459c0932dcdb9ca15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _verticatLoopSpeed: 3
+  _rotationSpeed: 100
 --- !u!1001 &4107230045573825657
 PrefabInstance:
   m_ObjectHideFlags: 0

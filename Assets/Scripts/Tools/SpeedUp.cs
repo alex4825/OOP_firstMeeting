@@ -10,6 +10,8 @@ public class SpeedUp : Tool
     {
         player.Mover.Speed.Add(_speedCoint);
 
+        Debug.Log($"Ускоритель применен. Скорость игрока: {player.Mover.Speed.Value}");
+
         Destroy(gameObject);
     }
 }

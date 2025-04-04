@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1634533410101290443}
   - component: {fileID: -4585985544001280404}
   - component: {fileID: 4433206248869174786}
+  - component: {fileID: -1685563116142227495}
   m_Layer: 0
   m_Name: SpeedUp
   m_TagString: Untagged
@@ -150,6 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pickUpScale: 0.25
+  _toolAnimator: {fileID: -1685563116142227495}
   _speedCoint: 3
 --- !u!114 &4433206248869174786
 MonoBehaviour:
@@ -165,6 +167,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _particlesLoop: {fileID: 2498231557829381824}
   _particlesOnDestroy: {fileID: 3110301255530522013}
+--- !u!114 &-1685563116142227495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4373585028985768381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab02122af1587ae459c0932dcdb9ca15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _verticatLoopSpeed: 3
+  _rotationSpeed: 100
 --- !u!1001 &7177799875763979202
 PrefabInstance:
   m_ObjectHideFlags: 0

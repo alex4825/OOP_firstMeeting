@@ -45,26 +45,35 @@ public class ToolsSpawner : MonoBehaviour
     {
         _isSpawnBegin = true;
         _points = points;
-
     }
 
     private void SpawnTool()
     {
         Tool randomTool = _toolPrefabs[Random.Range(0, _toolPrefabs.Count)];
 
-        do
-        {
-            SpawnPoint randomPoint = _points[Random.Range(0, _points.Count)];
+        List<SpawnPoint> emptyPoints = GetEmptyPointsFrom(_points);
 
-            if (randomPoint.IsEmpty)
-            {
-                Tool newTool = Instantiate(randomTool, randomPoint.transform);
-                _toolQueue.Enqueue(newTool);
-                randomPoint.OccupyWith(newTool);
-                break;
-            }
+        if (emptyPoints.Count == 0)
+            return;
+
+        SpawnPoint randomPoint = emptyPoints[Random.Range(0, emptyPoints.Count)];
+
+        Tool newTool = Instantiate(randomTool, randomPoint.transform);
+        _toolQueue.Enqueue(newTool);
+        randomPoint.OccupyWith(newTool);
+    }
+
+    private List<SpawnPoint> GetEmptyPointsFrom(List<SpawnPoint> points)
+    {
+        List<SpawnPoint> emptyPoints = new List<SpawnPoint>();
+
+        foreach (SpawnPoint point in points)
+        {
+            if (point.IsEmpty)
+                emptyPoints.Add(point);
         }
-        while (_toolQueue.Count < _points.Count);
+
+        return emptyPoints;
     }
 
     private void DestroyFirstCreatedTool()
