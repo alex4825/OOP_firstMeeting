@@ -1,18 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.ParticleSystem;
 
-public abstract class Tool : MonoBehaviour
+public abstract class Item : MonoBehaviour
 {
     [SerializeField] private float _pickUpScale = 0.25f;
-    [SerializeField] private ToolAnimator _toolAnimator;
+    [SerializeField] private ItemAnimator _itemAnimator;
 
-    public bool IsPickedUp { get; protected set; }
+    public bool IsPickedUp { get; private set; }
 
     private void Awake()
     {
-        _toolAnimator.PlayAnimation();
+        _itemAnimator.PlayAnimation();
     }
 
     public void PickUp(Transform parent)
@@ -22,9 +19,10 @@ public abstract class Tool : MonoBehaviour
         transform.localScale = new Vector3(_pickUpScale, _pickUpScale, _pickUpScale);
 
         IsPickedUp = true;
-        _toolAnimator.StopAnimation();
+        _itemAnimator.StopAnimation();
     }
 
-    public abstract void UseBy(Player player);
+    public abstract void UseBy(Transform ownerTransform);
+    public abstract bool CanUseBy(Transform ownerTransform);
 
 }

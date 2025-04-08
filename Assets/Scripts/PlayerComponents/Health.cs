@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Health : PositiveProperty
 {
-    public Health(float value) : base(value) { }
+
 }

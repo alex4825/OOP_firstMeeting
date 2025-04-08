@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fireball : Tool
+public class Fireball : Item
 {
     [SerializeField] private float _throwLifetime = 5;
     [SerializeField] private int _throwForce = 10;
@@ -10,11 +10,13 @@ public class Fireball : Tool
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private Collider _collider;
 
-    public override void UseBy(Player player)
+    public override bool CanUseBy(Transform ownerTransform) => true;
+
+    public override void UseBy(Transform ownerTransform)
     {
         transform.SetParent(null);
 
-        Vector3 throwDirection = Quaternion.AngleAxis(-_throwAngleInDegrees, player.transform.right) * player.transform.forward;
+        Vector3 throwDirection = Quaternion.AngleAxis(-_throwAngleInDegrees, ownerTransform.right) * ownerTransform.forward;
 
         _collider.isTrigger = false;
         _rigidbody.isKinematic = false;

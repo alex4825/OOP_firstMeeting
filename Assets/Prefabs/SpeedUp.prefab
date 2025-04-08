@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pickUpScale: 0.25
-  _toolAnimator: {fileID: -1685563116142227495}
+  _itemAnimator: {fileID: -1685563116142227495}
   _speedCoint: 3
 --- !u!114 &4433206248869174786
 MonoBehaviour:

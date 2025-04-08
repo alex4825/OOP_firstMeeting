@@ -2,21 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ToolsSpawner : MonoBehaviour
+public class ItemsSpawner : MonoBehaviour
 {
-    [SerializeField] private List<Tool> _toolPrefabs;
+    [SerializeField] private List<Item> _itemPrefabs;
     [SerializeField] private float _timeToSpawn = 5;
     [SerializeField] private float _timeToDestroy = 8;
 
     private bool _isSpawnBegin;
     private float _timeToSpawnPassed = 0;
     private float _timeToDestroyPassed = 0;
-    private Queue<Tool> _toolQueue;
+    private Queue<Item> _itemQueue;
     private List<SpawnPoint> _points;
 
     private void Awake()
     {
-        _toolQueue = new Queue<Tool>();
+        _itemQueue = new Queue<Item>();
     }
 
     private void Update()
@@ -27,7 +27,7 @@ public class ToolsSpawner : MonoBehaviour
 
             if (_timeToSpawnPassed >= _timeToSpawn)
             {
-                SpawnTool();
+                SpawnItem();
                 _timeToSpawnPassed = 0;
             }
 
@@ -35,7 +35,7 @@ public class ToolsSpawner : MonoBehaviour
 
             if (_timeToDestroyPassed >= _timeToDestroy)
             {
-                DestroyFirstCreatedTool();
+                DestroyFirstCreatedItem();
                 _timeToDestroyPassed = 0;
             }
         }
@@ -47,9 +47,9 @@ public class ToolsSpawner : MonoBehaviour
         _points = points;
     }
 
-    private void SpawnTool()
+    private void SpawnItem()
     {
-        Tool randomTool = _toolPrefabs[Random.Range(0, _toolPrefabs.Count)];
+        Item randomItem = _itemPrefabs[Random.Range(0, _itemPrefabs.Count)];
 
         List<SpawnPoint> emptyPoints = GetEmptyPointsFrom(_points);
 
@@ -58,9 +58,9 @@ public class ToolsSpawner : MonoBehaviour
 
         SpawnPoint randomPoint = emptyPoints[Random.Range(0, emptyPoints.Count)];
 
-        Tool newTool = Instantiate(randomTool, randomPoint.transform);
-        _toolQueue.Enqueue(newTool);
-        randomPoint.OccupyWith(newTool);
+        Item newItem = Instantiate(randomItem, randomPoint.transform);
+        _itemQueue.Enqueue(newItem);
+        randomPoint.OccupyWith(newItem);
     }
 
     private List<SpawnPoint> GetEmptyPointsFrom(List<SpawnPoint> points)
@@ -76,12 +76,12 @@ public class ToolsSpawner : MonoBehaviour
         return emptyPoints;
     }
 
-    private void DestroyFirstCreatedTool()
+    private void DestroyFirstCreatedItem()
     {
-        while (_toolQueue.Peek().IsPickedUp)
-            _toolQueue.Dequeue();
+        while (_itemQueue.Peek().IsPickedUp)
+            _itemQueue.Dequeue();
 
-        if (_toolQueue.Count > 0)
-            Destroy(_toolQueue.Dequeue().gameObject);
+        if (_itemQueue.Count > 0)
+            Destroy(_itemQueue.Dequeue().gameObject);
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ToolAnimator : MonoBehaviour
+public class ItemAnimator : MonoBehaviour
 {
     [SerializeField] private float _verticatLoopSpeed = 3.0f;
     [SerializeField] private float _rotationSpeed = 100f;

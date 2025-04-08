@@ -4,15 +4,23 @@ using UnityEngine;
 
 public abstract class PositiveProperty : MonoBehaviour
 {
+    [SerializeField] private int _initialValue;
+
     public float Value { get; private set; }
 
-    public PositiveProperty(float value)
+    public void Awake()
     {
-        Value = value;
+        Value = _initialValue;
+
+        if (_initialValue < 0)
+            Value = 0;
     }
 
     public void Add(float value)
     {
         Value += value;
+
+        if (value < 0)
+            Value = 0;
     }
 }

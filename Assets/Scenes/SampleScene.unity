@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38e96d3366605a042ab68610f6baed82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _toolPrefabs:
+  _itemPrefabs:
   - {fileID: 6536232112507641689, guid: 22f94a480eba2e7498fbfc2eb4371d56, type: 3}
   - {fileID: 2679531198545496327, guid: 77ccb8f0de028f142ad6b2e07583d171, type: 3}
   - {fileID: -4585985544001280404, guid: 6f61e0f49233d26448e626daae237a2d, type: 3}
@@ -859,6 +859,8 @@ GameObject:
   - component: {fileID: 1528486406}
   - component: {fileID: 1528486408}
   - component: {fileID: 1528486410}
+  - component: {fileID: 1528486412}
+  - component: {fileID: 1528486411}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -910,7 +912,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mover: {fileID: 1528486408}
-  _healthValue: 100
+  _health: {fileID: 1528486411}
+  _speed: {fileID: 1528486412}
 --- !u!114 &1528486408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -923,7 +926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3eff48bf23974c4aaeaa1c53b551c3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initialSpeed: 5
+  _speed: {fileID: 1528486412}
 --- !u!136 &1528486409
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -959,8 +962,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8740a5e95b38a1a469f0bc4590af8cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 1528486407}
   _hand: {fileID: 304143032}
+--- !u!114 &1528486411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528486403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f09844b107643cc4b89067768d664c6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initialValue: 100
+--- !u!114 &1528486412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528486403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bc943d8566848a439f62131ef96b5fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initialValue: 5
 --- !u!1 &1832486159
 GameObject:
   m_ObjectHideFlags: 0
@@ -991,7 +1019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pointsSpawner: {fileID: 217082617}
-  _toolsSpawner: {fileID: 217082619}
+  _itemsSpawner: {fileID: 217082619}
 --- !u!4 &1832486161
 Transform:
   m_ObjectHideFlags: 0

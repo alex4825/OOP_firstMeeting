@@ -5,19 +5,12 @@ using UnityEngine.EventSystems;
 
 public class Mover : MonoBehaviour
 {
-    [SerializeField] private float _initialSpeed = 5;
+    [SerializeField] private Speed _speed;
 
     private const string NameAxisX = "Horizontal";
     private const string NameAxisZ = "Vertical";
 
     public Vector3 MoveDirection { get; private set; }
-
-    public Speed Speed { get; private set; }
-
-    private void Awake()
-    {
-        Speed = new(_initialSpeed);
-    }
 
     private void Update()
     {
@@ -28,7 +21,7 @@ public class Mover : MonoBehaviour
 
     private void ProcessMovement()
     {
-        transform.Translate(MoveDirection * Speed.Value * Time.deltaTime, Space.World);
+        transform.Translate(MoveDirection * _speed.Value * Time.deltaTime, Space.World);
     }
 
     private void SetMoveDirection()

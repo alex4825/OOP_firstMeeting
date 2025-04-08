@@ -151,8 +151,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pickUpScale: 0.25
-  _toolAnimator: {fileID: -5298685865009516298}
-  _healthCoint: 10
+  _itemAnimator: {fileID: -5298685865009516298}
+  _healthCount: 10
 --- !u!114 &-4865551231342989602
 MonoBehaviour:
   m_ObjectHideFlags: 0

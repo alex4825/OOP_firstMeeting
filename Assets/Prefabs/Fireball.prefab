@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pickUpScale: 0.25
-  _toolAnimator: {fileID: -8494973222054057903}
+  _itemAnimator: {fileID: -8494973222054057903}
   _throwLifetime: 5
   _throwForce: 10
   _throwAngleInDegrees: 30

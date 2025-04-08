@@ -5,13 +5,13 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private PointsSpawner _pointsSpawner;
-    [SerializeField] private ToolsSpawner _toolsSpawner;
+    [SerializeField] private ItemsSpawner _itemsSpawner;
 
     private List<SpawnPoint> _points;
 
     private void Awake()
     {
         _points = _pointsSpawner.InstantiatePoints();
-        _toolsSpawner.BeginSpawnIn(_points);
+        _itemsSpawner.BeginSpawnIn(_points);
     }
 }

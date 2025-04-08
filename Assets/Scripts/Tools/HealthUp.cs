@@ -2,16 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthUp : Tool
+public class HealthUp : Item
 {
-    [SerializeField] private int _healthCoint = 10;
+    [SerializeField] private int _healthCount = 10;
 
-    public override void UseBy(Player player)
+    public override bool CanUseBy(Transform ownerTransform)
+        => ownerTransform.GetComponent<Health>() != null;
+
+
+    public override void UseBy(Transform ownerTransform)
     {
-        player.Health.Add(_healthCoint);
+        Health objectHealth = ownerTransform.GetComponent<Health>();
 
-        Debug.Log($"Аптечка применена. Здоровье игрока: {player.Health.Value}");
+        objectHealth.Add(_healthCount);
+
+        Debug.Log($"Аптечка применена. Здоровье игрока: {objectHealth.Value}");
 
         Destroy(gameObject);
     }
+
+
 }
